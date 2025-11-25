@@ -1,0 +1,317 @@
+/* ----------------- BLURRED BACKGROUND ----------------- */
+.background {
+    position: fixed; /* Keeps it fixed while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height of the viewport */
+    background-image: url(images/fondo.jpg); /* Background image */
+    background-size: cover; /* Cover entire area */
+    background-position: center; /* Center the image */
+    filter: blur(8px); /* Apply blur effect */
+    z-index: -1; /* Send it behind all content */
+}
+
+/* ----------------- RESET DEFAULT STYLES ----------------- */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Includes border and padding in width/height */
+    scroll-behavior: smooth; /* Smooth scrolling between anchor links */
+}
+
+/* ----------------- GLOBAL BODY STYLING ----------------- */
+body {
+    font-family: 'Arial', sans-serif; /* Base font */
+    color: white; /* Text color */
+    line-height: 1.6; /* Spacing between lines */
+    padding-top: 6rem; /* To offset the fixed navbar height */
+    scroll-snap-type: y mandatory; /* Enables vertical scroll snapping */
+    overflow-y: scroll; /* Enables vertical scroll */
+}
+
+/* ----------------- ANIMATIONS ----------------- */
+@keyframes reveal {
+    from {
+        opacity: 0;
+        translate: 0 100px; /* Start from lower position */
+    }
+    to {
+        opacity: 1;
+        translate: 0 0; /* Move into position */
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Apply animations to main sections */
+#about, #skills, #projects, table, #contact {
+    animation: fadeIn 2s; /* Fade in effect */
+    animation: reveal linear both; /* Slide up and fade in */
+    animation-timeline: view(); /* Triggered by view */
+    animation-range: entry 10% cover 30%; /* Animation trigger range */
+}
+
+/* ----------------- NAVIGATION BAR ----------------- */
+.navbar {
+    position: fixed; /* Always at top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 5rem; /* Fixed height */
+    display: flex; /* Flex layout */
+    justify-content: space-between; /* Space between nav and name */
+    align-items: center; /* Vertically center content */
+    padding: 1.25rem 5vw; /* Space inside navbar */
+    background-color: rgba(0, 0, 0, 1); /* Solid black background */
+    z-index: 9999; /* On top of everything */
+    transition: all 0.3s ease; /* Smooth transition on scroll */
+}
+
+/* Navbar style when scrolled */
+.navbar.scrolled {
+    transform: scale(0.95); /* Slightly shrink */
+    background-color: rgba(63, 63, 63, 0.589); /* Transparent dark */
+    backdrop-filter: blur(1px); /* Add slight blur */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+    border-radius: 4rem; /* Rounded edges */
+}
+
+/* Navigation links container */
+.nav-links {
+    list-style: none; /* Remove bullets */
+    display: flex; /* Horizontal layout */
+    gap: clamp(0.4rem, 1.5vw, 4rem); /* Responsive spacing between links */
+    transition: color 1s; /* Smooth color transition */
+}
+
+/* Individual nav links */
+.nav-links li a {
+    font-size: clamp(0.6rem, 2vw, 3rem); /* Responsive font size */
+    text-decoration: none; /* No underline */
+    color: white; /* Link color */
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s ease-in-out; /* Hover effects */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect on links */
+.nav-links li a:hover {
+    color: #00ffcc; /* Cyan color */
+    transform: scale(1.2); /* Zoom effect */
+}
+
+/* Name/title on navbar */
+.name {
+    font-size: clamp(1rem, 3vw, 4rem); /* Responsive font size */
+    font-weight: bold;
+    color: #00ffcc; /* Cyan color */
+}
+
+/* ----------------- ABOUT SECTION ----------------- */
+#about {
+    text-align: center;
+    padding: 80px 20px; /* Space around content */
+}
+
+#about h2 {
+    font-size: 3.125rem; /* Equivalent to 50px */
+    margin-bottom: 30px;
+}
+
+#about p {
+    margin-bottom: 10px;
+    color: #ccc; /* Light gray text */
+    font-size: clamp(10px, 20px, 30px); /* Responsive font */
+}
+
+/* Profile image */
+#about img {
+    margin-top: 20px;
+    width: clamp(300px, 50vw, 600px); /* Responsive width */
+    height: clamp(300px, 50vw, 600px); /* Responsive height */
+    object-fit: cover; /* Keep aspect ratio */
+    border-radius: 50%; /* Circle shape */
+    border: clamp(3px, 1vw, 7px) solid #00ffcc; /* Responsive border */
+    box-shadow: 15px 30px 30px #070707,
+                -1px -5px 50px #00ffcc; /* Shadow for 3D effect */
+    transition: transform 0.3s ease; /* Zoom effect */
+}
+
+#about img:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+}
+
+/* ----------------- SKILLS SECTION ----------------- */
+#skills {
+    padding: 80px 20px;
+    background-color: #1a1a1a; /* Dark background */
+}
+
+#skills h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#skills ul {
+    list-style: none; /* Remove bullets */
+    display: flex;
+    justify-content: center;
+    gap: 3.75rem; /* Space between icons */
+}
+
+/* Skills icon container */
+.skills-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+/* Individual skill item */
+.skills-icons li {
+    text-align: center;
+    background-color: #79dff1; /* Light blue background */
+    padding: 1.25rem 1.875rem;
+    border-radius: 50%; /* Circle background */
+}
+
+/* Skill images */
+.skills-icons img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.skills-icons img:hover {
+    transform: scale(1.1); /* Zoom on hover */
+}
+
+/* ----------------- PROJECTS SECTION ----------------- */
+#projects {
+    padding: 80px 20px;
+}
+
+#projects h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Project image */
+#projects img {
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Project table */
+table {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-collapse: collapse; /* Remove double borders */
+}
+
+/* Table borders */
+table, th, td {
+    border: 1px solid #00ffcc;
+}
+
+/* Table cell spacing */
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* Table header styling */
+th {
+    background-color: #00ffcc;
+    color: #000;
+}
+
+/* ----------------- CONTACT SECTION ----------------- */
+#contact {
+    padding: 80px 20px;
+    background-color: #1a1a1a;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Contact form */
+form {
+    max-width: 400px;
+    margin: auto;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #00ffcc;
+}
+
+/* Input and textarea fields */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none; /* Remove default border on focus */
+}
+
+/* Submit button */
+button {
+    background-color: #00ffcc;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #00ddb3;
+}
+
+/* ----------------- FOOTER SECTION ----------------- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #000;
+    margin-top: 40px;
+}
+
+/* Footer links */
+footer a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #00ddb3;
+}
+
+footer a img {
+    width: 70px;
+}

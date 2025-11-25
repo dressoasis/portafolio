@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio of Andrés Camilo Toloza</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/images/hacker.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- Background blur layer -->
+  <div class="background"></div>
+
+  <header>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+      <!-- Navigation links list -->
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Portfolio owner name -->
+      <h1 class="name">Andrés Camilo Toloza</h1>
+    </nav>
+  </header>
+
+  <!-- About section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello, I’m Andrés Camilo Toloza, a web developer in training with a strong passion for technology, design, and creating digital solutions.</p>
+    <p>I enjoy facing new challenges, constantly learning, and improving both my technical and creative skills.</p>
+    <p>Currently, I’m focusing on learning HTML, CSS, JavaScript, and Python, building projects that reflect my growth and commitment to professional development.</p>
+    <p>My goal is to provide value through technology and be part of teams that make a difference.</p>
+
+    <!-- Personal photo -->
+    <img src="images/mi.imagen.jpg" alt="Photo of Andrés Toloza" width="200">
+  </section>
+
+  <!-- Skills section -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+
+    <!-- Skills icon list -->
+    <ul class="skills-icons">
+      <li><img src="images/html.png" alt="HTML"></li>
+      <li><img src="images/css.png" alt="CSS"></li>
+      <li><img src="images/javaS.png" alt="JavaScript"></li>
+      <li><img src="images/file_type_python_icon_130221.ico" alt="Python"></li>
+      <li><img src="images/git.ico" alt="Git"></li>
+    </ul>
+  </section>
+
+  <!-- Projects section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+
+    <h3>Portfolio Project</h3>
+    <p>This project is a website where I showcase my professional profile, skills, and contact information.</p>
+
+    <!-- Project image -->
+    <img src="images/imagen.proyectos.jpg" alt="Portfolio project image" width="300">
+
+    <!-- Project table -->
+    <table>
+      <tr>
+        <th>Project Name</th>
+        <th>Technologies Used</th>
+        <th>Link</th>
+      </tr>
+      <tr>
+        <td>Web Portfolio</td>
+        <td>HTML, CSS</td>
+        <td><a href="https://github.com/your_username/portfolio" target="_blank">View on GitHub</a></td>
+      </tr>
+      <tr>
+        <td>Bookstore Inventory</td>
+        <td>Python</td>
+        <td><a href="https://github.com/your_username/portfolio" target="_blank">View on GitHub</a></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Contact section -->
+  <section id="contact">
+    <h2>Contact</h2>
+
+    <!-- Contact form -->
+    <form>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name"><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" cols="30"></textarea><br><br>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer with social media icons -->
+  <footer>
+    <h2>Social Media</h2>
+    <a href="https://www.instagram.com/dress_oasis/?next=%2F" target="_blank">
+      <img src="images/instagram.ico" alt="Instagram Icon" width="70"></a> |
+    <a href="https://github.com/dressoasis" target="_blank">
+      <img src="images/github.ico" alt="GitHub Icon" width="70"></a> |
+    <a href="https://www.linkedin.com/in/andres-toloza-tejeda-3909aa319/" target="_blank">
+      <img src="images/linkedin.ico" alt="LinkedIn Icon" width="70"></a> |
+  </footer>
+
+  <!-- Footer with copyright -->
+  <footer>
+    <p>&copy; 2025 Andrés Camilo Toloza. All rights reserved.</p>
+    <p>Designed by Andrés Camilo Toloza</p>
+  </footer>
+
+  <!-- Script to add shadow on scroll -->
+  <script>
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>

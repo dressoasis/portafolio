@@ -1,0 +1,299 @@
+/* ----------------- BLURRED BACKGROUND ----------------- */
+.fondo {
+    position: fixed; /* Fixed position */
+    top: 0; /* Top edge */
+    left: 0; /* Left edge */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full viewport height */
+    background-image: url(imagenes/fondo.jpeg); /* Background image */
+    background-size: cover; /* Cover entire element */
+    background-position: center; /* Center the background */
+    filter: blur(8px); /* Blur filter */
+    z-index: -1; /* Behind other elements */
+}
+
+/* ----------------- RESET ----------------- */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    scroll-behavior: smooth; /* Smooth scroll behavior */
+}
+
+/* ----------------- GENERAL BODY ----------------- */
+body {
+    font-family: 'Arial', sans-serif; /* Set font */
+    color: white; /* Text color */
+    line-height: 1.6; /* Line height for readability */
+    padding-top: 6rem; /* Top padding to compensate fixed navbar */
+    scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+    overflow-y: scroll; /* Enable vertical scrollbar */
+}
+
+/* Reveal animation from transparent and moved down */
+@keyframes reveal {
+    from {
+        opacity: 0; /* Start transparent */
+        translate: 0 100px; /* Start translated 100px down */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+        translate: 0 0; /* End at original position */
+    }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from { opacity: 0; } /* Start transparent */
+    to { opacity: 1; } /* End fully visible */
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+    from { opacity: 1; } /* Start visible */
+    to { opacity: 0; } /* End transparent */
+}
+
+/* Elements to apply animation */
+#presentacion, #habilidades, #proyectos, table, #contacto {
+    animation: fadeIn 2s; /* Fade in over 2 seconds */
+    animation: reveal linear both; /* Reveal animation */
+    animation-timeline: view(); /* Use view timeline for animation */
+    animation-range: entry 10% cover 30%; /* Define animation range */
+}
+
+/* ----------------- NAVBAR ----------------- */
+.navbar {
+    position: fixed; /* Fixed position */
+    top: 0; /* Top edge */
+    left: 0; /* Left edge */
+    width: 100%; /* Full width */
+    height: 5rem; /* Fixed height */
+    display: flex; /* Flex container */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Vertically center items */
+    padding: 1.25rem 5vw; /* Padding around */
+    background-color: rgba(0, 0, 0, 1); /* Black background */
+    z-index: 9999; /* Layer on top */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.navbar.scrolled {
+    transform: scale(0.95); /* Scale down slightly */
+    background-color: rgba(63, 63, 63, 0.589); /* Semi-transparent dark background */
+    backdrop-filter: blur(1px); /* Blur effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow around */
+    border-radius: 4rem; /* Rounded corners */
+}
+
+.nav-links {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Flex container */
+    gap: clamp(0.4rem, 1.5vw, 4rem); /* Space between links */
+    transition: color 1s; /* Transition color changes */
+}
+
+.nav-links li a {
+    font-size: clamp(0.6rem, 2vw, 3rem); /* Responsive font size */
+    text-decoration: none; /* Remove underline */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s, transform 0.3s ease-in-out; /* Smooth color and transform transition */
+    display: flex; /* Flex container */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.nav-links li a:hover {
+    color: #00ffcc; /* Change color on hover */
+    transform: scale(1.2); /* Scale up on hover */
+}
+
+.nombre {
+    font-size: clamp(1rem, 3vw, 4rem); /* Responsive font size */
+    font-weight: bold; /* Bold text */
+    color: #00ffcc; /* Accent color */
+}
+
+/* ----------------- PRESENTATION SECTION ----------------- */
+#presentacion {
+    text-align: center; /* Center text */
+    padding: 80px 20px; /* Padding top/bottom and sides */
+}
+
+#presentacion h2 {
+    font-size: 50px; /* Large font size */
+    margin-bottom: 30px; /* Space below */
+}
+
+#presentacion p {
+    margin-bottom: 10px; /* Space below paragraphs */
+    color: #ccc; /* Light grey text */
+    font-size: 25px; /* Larger font size */
+}
+
+#presentacion img {
+    margin-top: 20px; /* Space above image */
+    width: clamp(300px, 50vw, 600px); /* Responsive width */
+    height: clamp(300px, 50vw, 600px); /* Responsive height */
+    object-fit: cover; /* Cover image area */
+    border-radius: 50%; /* Rounded circle */
+    border: clamp(3px, 1vw, 7px) solid #00ffcc; /* Responsive border */
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); /* Glow shadow */
+    transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+#presentacion img:hover {
+    transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+/* ----------------- SKILLS ----------------- */
+#habilidades {
+    padding: 80px 20px; /* Padding */
+    background-color: #1a1a1a; /* Dark background */
+}
+
+#habilidades h2 {
+    text-align: center; /* Center heading */
+    margin-bottom: 20px; /* Space below */
+}
+
+#habilidades ul {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Flex container */
+    justify-content: center; /* Center items horizontally */
+    gap: 3.75rem; /* Space between icons */
+}
+
+.icon-habilidades {
+    display: flex; /* Flex container */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center horizontally */
+    gap: 1rem; /* Space between items */
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 2rem auto; /* Margin auto for centering */
+    max-width: 800px; /* Max width */
+}
+
+.icon-habilidades li {
+    text-align: center; /* Center content */
+    background-color: #79dff1; /* Background color */
+    padding: 1.25rem 1.875rem; /* Padding */
+    border-radius: 50%; /* Round shape */
+}
+
+.icon-habilidades img {
+    width: 100%; /* Full width */
+    max-width: 100px; /* Max width */
+    height: auto; /* Auto height */
+    transition: transform 0.3s ease; /* Smooth transform */
+}
+
+.icon-habilidades img:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+/* ----------------- PROJECTS ----------------- */
+#proyectos {
+    padding: 80px 20px; /* Padding */
+}
+
+#proyectos h2 {
+    text-align: center; /* Center heading */
+    margin-bottom: 30px; /* Space below */
+}
+
+#proyectos img {
+    display: block; /* Block display */
+    margin: 20px auto; /* Center horizontally with margin */
+    max-width: 300px; /* Max width */
+    border-radius: 10px; /* Rounded corners */
+}
+
+table {
+    width: 80%; /* Width of table */
+    margin: auto; /* Center horizontally */
+    margin-top: 20px; /* Space above */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+table, th, td {
+    border: 1px solid #00ffcc; /* Border color */
+}
+
+th, td {
+    padding: 12px; /* Padding inside cells */
+    text-align: center; /* Center text */
+}
+
+th {
+    background-color: #00ffcc; /* Background color for headers */
+    color: #000; /* Text color */
+}
+
+/* ----------------- CONTACT ----------------- */
+#contacto {
+    padding: 80px 20px; /* Padding */
+    background-color: #1a1a1a; /* Dark background */
+}
+
+#contacto h2 {
+    text-align: center; /* Center heading */
+    margin-bottom: 30px; /* Space below */
+}
+
+form {
+    max-width: 400px; /* Max width */
+    margin: auto; /* Center form */
+    background-color: #222; /* Background color */
+    padding: 20px; /* Padding inside */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #00ffcc; /* Border color */
+}
+
+input, textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside */
+    margin-top: 5px; /* Margin top */
+    margin-bottom: 15px; /* Margin bottom */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove outline */
+}
+
+button {
+    background-color: #00ffcc; /* Background color */
+    color: #000; /* Text color */
+    padding: 10px 20px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 6px; /* Rounded corners */
+    font-weight: bold; /* Bold font */
+    cursor: pointer; /* Cursor pointer */
+}
+
+button:hover {
+    background-color: #00ddb3; /* Slightly darker background on hover */
+}
+
+/* ----------------- FOOTER ----------------- */
+footer {
+    text-align: center; /* Center text */
+    padding: 30px; /* Padding */
+    background-color: #000; /* Black background */
+    margin-top: 40px; /* Margin above */
+}
+
+footer a {
+    color: #00ffcc; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold font */
+}
+
+footer a:hover {
+    color: #00ddb3; /* Hover color */
+}
+
+footer a img {
+    width: 70px; /* Width for icons */
+}

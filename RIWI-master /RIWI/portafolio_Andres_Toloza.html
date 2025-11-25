@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio of Andrés Camilo Toloza</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/imagenes/hacker.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- Blurred background layer -->
+  <div class="fondo"></div>
+
+  <header>
+    <nav class="navbar"><!-- Navigation bar container -->
+      <ul class="nav-links"><!-- Navigation links list -->
+        <li><a href="#presentacion">About</a></li>
+        <li><a href="#habilidades">Skills</a></li>
+        <li><a href="#proyectos">Projects</a></li>
+        <li><a href="#contacto">Contact</a></li>
+      </ul>
+      <h1 class="nombre">Andrés Camilo Toloza</h1><!-- Name displayed in navbar -->
+    </nav>
+  </header>
+
+  <section id="presentacion"><!-- About me section -->
+    <h2>About Me</h2>
+    <p>Hello, I’m Andrés Camilo Toloza, a web developer in training with a strong passion for technology, design, and creating digital solutions.</p>
+    <p>I enjoy facing new challenges, constantly learning, and improving both my technical and creative skills.</p>
+    <p>Currently, I’m focusing on learning HTML, CSS, JavaScript, and Python, building projects that reflect my growth and commitment to professional development.</p>
+    <p>My goal is to provide value through technology and be part of teams that make a difference.</p>
+    <img src="imagenes/mi.imagen.jpg" alt="Photo of Andrés Toloza" width="200">
+  </section>
+
+  <section id="habilidades"><!-- Technical skills section -->
+    <h2>Technical Skills</h2>
+    <ul class="icon-habilidades"><!-- Skills icons list -->
+      <li><img src="imagenes/html.png" alt="html"></li>
+      <li><img src="imagenes/css.png" alt="css"></li>
+      <li><img src="imagenes/javaS.png" alt="JavaScript"></li>
+      <li><img src="imagenes/file_type_python_icon_130221.ico" alt="Python"></li>
+      <li><img src="imagenes/git.ico" alt="GitHub"></li>
+    </ul>
+  </section>
+
+  <section id="proyectos"><!-- Projects section -->
+    <h2>My Projects</h2>
+    <h3>Portfolio Project</h3>
+    <p>This project is a website where I showcase my professional profile, skills, and contact information.</p>
+    <img src="imagenes/imagen.proyectos.jpg" alt="Portfolio project image" width="300">
+
+    <table><!-- Projects table -->
+      <tr>
+        <th>Project Name</th>
+        <th>Technologies Used</th>
+        <th>Link</th>
+      </tr>
+      <tr>
+        <td>Web Portfolio</td>
+        <td>HTML, CSS</td>
+        <td><a href="https://github.com/tu_usuario/portafolio" target="_blank">View on GitHub</a></td>
+      </tr>
+      <tr>
+        <td>Bookstore Inventory</td>
+        <td>Python</td>
+        <td><a href="https://github.com/tu_usuario/portafolio" target="_blank">View on GitHub</a></td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="contacto"><!-- Contact section -->
+    <h2>Contact</h2>
+    <form>
+      <label for="nombre">Name:</label><br>
+      <input type="text" id="nombre" name="nombre"><br><br>
+      <label for="correo">Email:</label><br>
+      <input type="email" id="correo" name="correo"><br><br>
+      <label for="mensaje">Message:</label><br>
+      <textarea id="mensaje" name="mensaje" rows="5" cols="30"></textarea><br><br>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <h2>Social Media</h2>
+    <a href="https://www.instagram.com/dress_oasis/?next=%2F" target="_blank">
+      <img src="imagenes/instagram.ico" alt="Instagram Icon" width="70"></a> |
+    <a href="https://github.com/dressoasis" target="_blank">
+      <img src="imagenes/github.ico" alt="GitHub Icon" width="70"></a> |
+    <a href="https://www.linkedin.com/in/andres-toloza-tejeda-3909aa319/" target="_blank">
+      <img src="imagenes/linkedin.ico" alt="LinkedIn Icon" width="70"></a> |
+  </footer>
+
+  <footer>
+    <p>&copy; 2025 Andrés Camilo Toloza. All rights reserved.</p>
+    <p>Designed by Andrés Camilo Toloza</p>
+  </footer>
+
+  <script>
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled'); // Add class when scrolled down
+      } else {
+        navbar.classList.remove('scrolled'); // Remove class when at top
+      }
+    });
+  
+  </script>
+
+</body>
+</html>
